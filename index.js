@@ -1,14 +1,48 @@
 const mainBody=document.querySelector("body");
 
+
+
+const buttonContainer=document.createElement("div");
+mainBody.appendChild(buttonContainer);
+buttonContainer.id="buttonContainer";
+
+const inputButton=document.createElement("button");
+buttonContainer.appendChild(inputButton);
+inputButton.id="inputButton";
+inputButton.textContent="Click on me"
+
+inputButton.addEventListener(`click`, () => {
+    let answer=prompt("Select a number of squares")
+    let modifiedAnswer=answer*answer;
+
+    const divSquares=document.querySelectorAll(".squares")
+    divSquares.forEach((divSquare) => {
+        divSquare.classList.remove("squares")
+    })
+
+    for (let index=0; index<modifiedAnswer; index++){
+        let newSquare=document.createElement("div")
+        newSquare.classList.add("squares");
+        container.appendChild(newSquare);
+
+        newSquare.style.backgroundColor="red"
+    }
+})
+
+
+
 const container=document.createElement("div")
 mainBody.appendChild(container)
 container.id=`container`;
 
 
+
+
+
+/*
 const div1=document.createElement("div")
 div1.classList.add("squares");
 container.appendChild(div1);
-//div1.classList.add("active")
 
 const div2=document.createElement("div")
 div2.classList.add("squares");
@@ -86,4 +120,4 @@ divSquares.forEach((divSquare) => {
 })
 
 
-
+*/
