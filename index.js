@@ -27,6 +27,9 @@ inputButton.addEventListener(`click`, () => {
 
         newSquare.style.backgroundColor="red"
     }
+    let newWidth=((modifiedAnswer*1)/100)*100
+    console.log(newWidth)
+    newSquare.style.width=newWidth
 })
 
 
