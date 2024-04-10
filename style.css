@@ -16,8 +16,6 @@ body{
 .rows{
     flex: 1;
     margin:0px;
-    
-
 
     display: flex;
     flex-wrap: wrap;
@@ -38,3 +36,5 @@ body{
     padding: 10px;
     font-size: 1rem;
 }
+
+

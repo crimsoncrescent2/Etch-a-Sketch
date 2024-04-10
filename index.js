@@ -54,17 +54,32 @@ inputButton.addEventListener(`click`, () => {
         }
 
         //Change colour of the grid square when hovering.
+
         const newSquares=document.querySelectorAll(".squares")
         newSquares.forEach((newSquare) => {
         newSquare.addEventListener("mouseover", () => {
-            newSquare.style.backgroundColor="greenyellow";
+            newSquare.style.backgroundColor = `rgba(${randomColour()}, ${randomColour()}, ${randomColour()})`;
         })
         newSquare.addEventListener("mouseout", () => {
             newSquare.style.backgroundColor="";
         })
+        
+        //Generate a number from 1 to 255 to be used for RGB.
+        function randomColour(){
+            let randomNumber=Math.floor((Math.random()*255)+1);
+            return randomNumber;
+        }
 
+
+        
     })
     }
     
 
 })
+
+//I didn't do the last optional task - darkening a grid square by 10% each time mouse hovers over it.
+
+
+
+
