@@ -1,126 +1,70 @@
 const mainBody=document.querySelector("body");
 
 
-
+//Creating a container for the button node and attaching it to the BODY
 const buttonContainer=document.createElement("div");
 mainBody.appendChild(buttonContainer);
 buttonContainer.id="buttonContainer";
 
+//Creating input button that asks for user input
 const inputButton=document.createElement("button");
 buttonContainer.appendChild(inputButton);
 inputButton.id="inputButton";
-inputButton.textContent="Click on me"
+inputButton.textContent="Set Grid Dimensions. 100 is the limit!"
 
-inputButton.addEventListener(`click`, () => {
-    let answer=prompt("Select a number of squares")
-    let modifiedAnswer=answer*answer;
-
-    const divSquares=document.querySelectorAll(".squares")
-    divSquares.forEach((divSquare) => {
-        divSquare.classList.remove("squares")
-    })
-
-    for (let index=0; index<modifiedAnswer; index++){
-        let newSquare=document.createElement("div")
-        newSquare.classList.add("squares");
-        container.appendChild(newSquare);
-
-        newSquare.style.backgroundColor="red"
-    }
-    let newWidth=((modifiedAnswer*1)/100)*100
-    console.log(newWidth)
-    newSquare.style.width=newWidth
-})
-
-
-
+//Creating main container for the ROWS
 const container=document.createElement("div")
 mainBody.appendChild(container)
 container.id=`container`;
 
+//Clicking on the button generates the grid.
+inputButton.addEventListener(`click`, () => {
+    let answer=prompt("Select a number of squares")
 
-
-
-
-/*
-const div1=document.createElement("div")
-div1.classList.add("squares");
-container.appendChild(div1);
-
-const div2=document.createElement("div")
-div2.classList.add("squares");
-container.appendChild(div2);
-
-
-const div3=document.createElement("div")
-div3.classList.add("squares");
-container.appendChild(div3);
-
-
-const div4=document.createElement("div")
-div4.classList.add("squares");
-container.appendChild(div4);
-
-
-const div5=document.createElement("div")
-div5.classList.add("squares");
-container.appendChild(div5);
-
-const div6=document.createElement("div")
-div6.classList.add("squares");
-container.appendChild(div6);
-
-const div7=document.createElement("div")
-div7.classList.add("squares");
-container.appendChild(div7);
-
-const div8=document.createElement("div")
-div8.classList.add("squares");
-container.appendChild(div8);
-
-const div9=document.createElement("div")
-div9.classList.add("squares");
-container.appendChild(div9);
-
-const div10=document.createElement("div")
-div10.classList.add("squares");
-container.appendChild(div10);
-
-const div111=document.createElement("div")
-div111.classList.add("squares");
-container.appendChild(div111);
-
-const div12=document.createElement("div")
-div12.classList.add("squares");
-container.appendChild(div12);
-
-const div13=document.createElement("div")
-div13.classList.add("squares");
-container.appendChild(div13);
-
-const div14=document.createElement("div")
-div14.classList.add("squares");
-container.appendChild(div14);
-
-const div15=document.createElement("div")
-div15.classList.add("squares");
-container.appendChild(div15);
-
-const div16=document.createElement("div")
-div16.classList.add("squares");
-container.appendChild(div16);
-
-
-
-const divSquares=document.querySelectorAll(".squares")
-divSquares.forEach((divSquare) => {
-    divSquare.addEventListener("mouseover", () => {
-        divSquare.style.backgroundColor="greenyellow";
+    //Removes previously generated grid.
+    const divRows=document.querySelectorAll(".rows")
+    divRows.forEach((divRow) => {
+        divRow.classList.remove("rows")
     })
-    divSquare.addEventListener("mouseout", () => {
-        divSquare.style.backgroundColor="";
+    const divSquares=document.querySelectorAll(".squares")
+    divSquares.forEach((divSquare) => {
+        divSquare.classList.remove("squares")
     })
+    //Throw alert message if the user inputs a number higher than 100.
+    if (answer>100){
+        alert("The dimensions can't exceed 100 grid squares.");
+    }
+
+    //Creates a grid.
+    else {
+        let gridDimension=answer;
+
+        //Set number of rows based on user's input
+        for (let index=0; index<gridDimension; index++){
+            let newRow=document.createElement("div")
+            newRow.classList.add("rows");
+            container.appendChild(newRow);
+
+        //Set number of squares in a row based on user's input
+        for (let index=0; index<gridDimension; index++){
+            let newSquare=document.createElement("div")
+            newSquare.classList.add("squares");
+            newRow.appendChild(newSquare);
+        }
+        }
+
+        //Change colour of the grid square when hovering.
+        const newSquares=document.querySelectorAll(".squares")
+        newSquares.forEach((newSquare) => {
+        newSquare.addEventListener("mouseover", () => {
+            newSquare.style.backgroundColor="greenyellow";
+        })
+        newSquare.addEventListener("mouseout", () => {
+            newSquare.style.backgroundColor="";
+        })
+
+    })
+    }
+    
+
 })
-
-
-*/
